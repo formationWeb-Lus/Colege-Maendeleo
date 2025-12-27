@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COLLEGE MAENDELEO</title>
+  <link rel="stylesheet" href="/styles/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="COLLEGE MAENDELEO" class="logo-img">
+  </div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="enseignement.html">Enseignement</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="actualite.html">Actualités</a>
+    <a href="contact.html" class="btn-primary">Contact</a>
+  </nav>
+</header>
+
+  <style>
+    :root {
+      --bleu: #2563eb;
+      --rouge: #dc2626;
+      --blanc: #ffffff;
+      --noir: #111827;
+      --gris-fonce: #1f2937;
+      --radius: 8px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --font-sans: 'Arial', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: var(--noir);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--rouge);
+      margin-top: 2rem;
+      font-size: 2rem;
+    }
+
+    .actus-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .actus-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      max-width: 1200px;
+      margin: 2rem auto 0 auto;
+    }
+
+    .actus-card {
+      background: var(--blanc);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .actus-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      font-size: 2rem;
+      color: var(--blanc);
+      margin-bottom: 1rem;
+    }
+
+    .icon.blue { background: var(--bleu); }
+    .icon.red { background: var(--rouge); }
+    .icon.green { background: green; }
+    .icon.orange { background: orange; }
+
+    .actus-card h3 {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: var(--noir);
+    }
+
+    @media (max-width: 768px) {
+      .actus-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Actualités & Événements</h1>
+
+  <section class="actus-section">
+    <div class="actus-cards">
+      <div class="actus-card">
+        <div class="icon blue">✔</div>
+        <h3>Encadrement de qualité</h3>
+      </div>
+
+      <div class="actus-card">
+        <div class="icon red">🔒</div>
+        <h3>Atelier moderne</h3>
+      </div>
+
+      <div class="actus-card">
+        <div class="icon green">☀</div>
+        <h3>Activité enrichissante</h3>
+      </div>
+
+      <div class="actus-card">
+        <div class="icon orange">⭐</div>
+        <h3>Excellent résultat</h3>
+      </div>
+
+      <div class="actus-card">
+        <div class="icon bleu">🎓</div>
+        <h3>Remise des diplômes</h3>
+      </div>
+
+      <div class="actus-card">
+        <div class="icon red">📅</div>
+        <h3>Planning scolaire 2026</h3>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

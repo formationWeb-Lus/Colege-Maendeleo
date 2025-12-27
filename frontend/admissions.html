@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COLLEGE MAENDELEO</title>
+  <link rel="stylesheet" href="/styles/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="COLLEGE MAENDELEO" class="logo-img">
+  </div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="enseignement.html">Enseignement</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="actualite.html">Actualités</a>
+    <a href="contact.html" class="btn-primary">Contact</a>
+  </nav>
+</header>
+
+  <style>
+    /* ===================== VARIABLES ===================== */
+    :root {
+      --bleu: #2563eb;
+      --rouge: #dc2626;
+      --blanc: #ffffff;
+      --noir: #111827;
+      --radius: 8px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --font-sans: 'Arial', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: var(--noir);
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--rouge);
+      margin-top: 2rem;
+      font-size: 2rem;
+    }
+
+    /* ===================== FORMULAIRE ADMISSION ===================== */
+    #admission-form {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--blanc);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #admission-form input,
+    #admission-form select,
+    #admission-form textarea {
+      padding: 12px 15px;
+      border: 1px solid #d1d5db;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #admission-form input:focus,
+    #admission-form select:focus,
+    #admission-form textarea:focus {
+      border-color: var(--bleu);
+      box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+    }
+
+    #admission-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    #admission-form button {
+      background: linear-gradient(45deg, var(--rouge), var(--bleu));
+      color: var(--blanc);
+      padding: 12px 20px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    #admission-form button:hover {
+      background: linear-gradient(45deg, #c1121f, #1e40af);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      #admission-form {
+        padding: 1.5rem;
+        margin: 1.5rem;
+      }
+    }
+
+    /* ===================== TITRE ET TEXTE ===================== */
+    p.info {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pré-inscription COLLEGE MAENDELEO</h1>
+  <p class="info">Remplissez le formulaire ci-dessous pour vous inscrire à nos programmes.</p>
+
+  <form id="admission-form">
+    <input type="text" name="nom" placeholder="Nom" required>
+    <input type="text" name="prenom" placeholder="Prénom" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <select name="niveau">
+      <option value="Maternelle">Maternelle</option>
+      <option value="Primaire">Primaire</option>
+      <option value="Secondaire">Secondaire</option>
+      <option value="Humanités">Humanités</option>
+    </select>
+    <textarea name="message" placeholder="Message"></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("admission-form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch("/api/admissions", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        alert(result.message);
+        form.reset();
+      } catch (err) {
+        alert("Erreur : " + err.message);
+      }
+    });
+  </script>
+
+</body>
+</html>

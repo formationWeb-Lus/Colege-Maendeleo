@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COLLEGE MAENDELEO</title>
+  <link rel="stylesheet" href="/styles/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="COLLEGE MAENDELEO" class="logo-img">
+  </div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="enseignement.html">Enseignement</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="actualite.html">Actualités</a>
+    <a href="contact.html" class="btn-primary">Contact</a>
+  </nav>
+</header>
+
+  <style>
+    :root {
+      --bleu: #2563eb;
+      --rouge: #dc2626;
+      --blanc: #ffffff;
+      --noir: #111827;
+      --gris-fonce: #1f2937;
+      --radius: 8px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --font-sans: 'Arial', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: var(--noir);
+    }
+
+    header {
+      background: var(--rouge);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: var(--blanc);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--rouge);
+      margin: 2rem 0 1rem 0;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    /* Niveaux principaux */
+    .niveau-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .niveau-card {
+      background: var(--blanc);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      width: 260px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .niveau-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .niveau-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--rouge);
+    }
+
+    .niveau-card h3 {
+      margin: 1rem 0 0.5rem 0;
+      color: var(--noir);
+      font-size: 1.2rem;
+    }
+
+    .niveau-card p {
+      padding: 0 1rem 1rem 1rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .niveau-card a.btn-primary {
+      display: inline-block;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, var(--rouge), var(--bleu));
+      color: var(--blanc);
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .niveau-card a.btn-primary:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(45deg, #c1121f, #1e40af);
+    }
+
+    /* Options humanitaires */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+      align-items: stretch;
+    }
+
+    .option-card {
+      background: var(--blanc);
+      border: 2px solid var(--bleu);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 200px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      padding-bottom: 1rem;
+    }
+
+    .option-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .option-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--bleu);
+    }
+
+    .option-card h3 {
+      margin: 1rem 0;
+      color: var(--noir);
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .niveau-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<h1>Nos Programmes d'Enseignement</h1>
+
+<section class="section">
+  <div class="niveau-cards">
+    <div class="niveau-card">
+      <img src="/images/maternelle.jpeg" alt="Maternelle">
+      <h3>Maternelle</h3>
+      <p>Éveil, socialisation et premières connaissances pour les plus petits.</p>
+      <a href="contact.html" class="btn-primary">S'inscrire</a>
+    </div>
+    <div class="niveau-card">
+      <img src="/images/primaire.jpeg" alt="Primaire">
+      <h3>Primaire</h3>
+      <p>Acquisition des fondamentaux et développement de la créativité.</p>
+      <a href="contact.html" class="btn-primary">S'inscrire</a>
+    </div>
+    <div class="niveau-card">
+      <img src="/images/secondaire.jpeg" alt="Secondaire">
+      <h3>Secondaire</h3>
+      <p>Programme complet pour préparer les étudiants à l'avenir et aux examens.</p>
+      <a href="contact.html" class="btn-primary">S'inscrire</a>
+    </div>
+    <div class="niveau-card">
+      <img src="/images/humaniter.jpeg" alt="Humanités">
+      <h3>Humanités</h3>
+      <p>Toutes les options sur une seule page pour une vision globale des matières.</p>
+      <a href="contact.html" class="btn-primary">S'inscrire</a>
+    </div>
+  </div>
+</section>
+
+<h2>Nos Options Humanitaires Disponibles</h2>
+<section class="section">
+  <div class="options-grid">
+    <div class="option-card"><img src="/images/scientifiques.jpeg" alt="Scientifiques"><h3>Scientifiques</h3></div>
+    <div class="option-card"><img src="/images/commerciales.jpeg" alt="Commerciales"><h3>Commerciales</h3></div>
+    <div class="option-card"><img src="/images/pedagogie.jpeg" alt="Pédagogie"><h3>Pédagogie</h3></div>
+    <div class="option-card"><img src="/images/electricite.jpeg" alt="Électricité"><h3>Électricité</h3></div>
+    <div class="option-card"><img src="/images/construction.jpeg" alt="Construction"><h3>Construction</h3></div>
+    <div class="option-card"><img src="/images/agro.jpeg" alt="Agro"><h3>Agro</h3></div>
+    <div class="option-card"><img src="/images/veterinaire.jpeg" alt="Vétérinaire"><h3>Vétérinaire</h3></div>
+    <div class="option-card"><img src="/images/secretaire.jpeg" alt="Secrétariat"><h3>Secrétariat</h3></div>
+    <div class="option-card"><img src="/images/mine-geologie.jpeg" alt="Mine & Géologie"><h3>Mine & Géologie</h3></div>
+    <div class="option-card"><img src="/images/coupe-couture.jpeg" alt="Coupe & Couture"><h3>Coupe & Couture</h3></div>
+    <div class="option-card"><img src="/images/hotellerie.jpeg" alt="Hôtellerie"><h3>Hôtellerie</h3></div>
+    <div class="option-card"><img src="/images/mecanique.jpeg" alt="Mécanique"><h3>Mécanique</h3></div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COLLEGE MAENDELEO</title>
+  <link rel="stylesheet" href="/styles/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="/images/logo.jpg" alt="COLLEGE MAENDELEO" class="logo-img">
+  </div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="enseignement.html">Enseignement</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="actualite.html">Actualités</a>
+    <a href="contact.html" class="btn-primary">Contact</a>
+  </nav>
+</header>
+
+  <style>
+    :root {
+      --bleu: #2563eb;
+      --rouge: #dc2626;
+      --blanc: #ffffff;
+      --noir: #111827;
+      --radius: 8px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --font-sans: 'Arial', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: var(--noir);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--rouge);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: var(--blanc);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--rouge);
+      margin: 2rem 0 0.5rem 0;
+      font-size: 2rem;
+    }
+
+    p.info {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* ===================== FORMULAIRE ===================== */
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto 2rem auto;
+      padding: 2rem;
+      background: var(--blanc);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      padding: 12px 15px;
+      border: 1px solid #d1d5db;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--bleu);
+      box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: linear-gradient(45deg, var(--rouge), var(--bleu));
+      color: var(--blanc);
+      padding: 12px 20px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: linear-gradient(45deg, #c1121f, #1e40af);
+      transform: translateY(-2px);
+    }
+
+    /* ===================== INFORMATIONS CONTACT ===================== */
+    .contact-info {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--blanc);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #25D366;
+      color: var(--blanc);
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+
+    }
+    
+
+    @media (max-width: 600px) {
+      .contact-form, .contact-info {
+        padding: 1.5rem;
+        margin: 1.5rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<h1>Contact / Pré-inscription COLLEGE MAENDELEO</h1>
+<p class="info">Vous pouvez nous contacter via le formulaire ou directement par WhatsApp.</p>
+
+<form class="contact-form" id="contact-admission-form">
+  <input type="text" name="nom" placeholder="Nom" required>
+  <input type="text" name="prenom" placeholder="Prénom" required>
+  <input type="tel" name="numero" placeholder="Numéro de téléphone" required>
+  <select name="niveau">
+    <option value="Maternelle">Maternelle</option>
+    <option value="Primaire">Primaire</option>
+    <option value="Secondaire">Secondaire</option>
+    <option value="Humanités">Humanités</option>
+  </select>
+  <textarea name="message" placeholder="Message"></textarea>
+  <button type="submit">Envoyer</button>
+</form>
+
+<div class="contact-info">
+  <p>📞 +243 970 710 263</p>
+  <p>📞 +243 970 710 264</p>
+  <p>📍 Province du Haut-Uele, Territoire de Watsa, Quartier Bandayi, RDC</p>
+  <a href="https://wa.me/243970710263" target="_blank" class="whatsapp-btn">💬 Discuter sur WhatsApp</a>
+</div>
+
+<script>
+  const form = document.getElementById("contact-admission-form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      alert(result.message);
+      form.reset();
+    } catch (err) {
+      alert("Erreur : " + err.message);
+    }
+  });
+</script>
+
+</body>
+</html>
