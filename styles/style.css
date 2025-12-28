@@ -1,3 +1,4 @@
+/* ===================== VARIABLES ===================== */
 :root {
   --bleu: #2563eb;
   --rouge: #dc2626;
@@ -12,6 +13,7 @@
   --font-sans: 'Arial', sans-serif;
 }
 
+/* ===================== GLOBAL ===================== */
 body {
   font-family: var(--font-sans);
   margin: 0;
@@ -21,34 +23,88 @@ body {
   line-height: 1.6;
 }
 
+a { text-decoration: none; }
+img { max-width: 100%; display: block; }
+
 /* ===================== HEADER ===================== */
-header {
-  background: var(--blanc);
-  color: var(--noir);
+.header {
+  background: var(--rouge);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 5px #f5f2f2ea;
+  padding: 12px 20px;
+  position: relative;
+  z-index: 1000;
 }
 
-header .logo-img {
-  height: 50px;
-  width: auto;
+/* Logo */
+.logo-img { height: 55px; }
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-header nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: var(--blanc);
+  border-radius: 4px;
 }
 
-header nav a.btn-primary {
+/* Menu navigation */
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  right: 20px;
   background: var(--bleu);
-  color: var(--blanc);
-  padding: 8px 18px;
+  padding: 1rem 1.5rem;
   border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateX(30px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  min-width: max-content;
+}
+
+/* Liens menu */
+.nav-menu a {
+  color: var(--blanc);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nav-menu a.btn-primary {
+  background: var(--blanc);
+  color: var(--bleu);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+}
+
+/* Bouton fermer */
+.menu-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--blanc);
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+/* Menu actif */
+.nav-menu.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 /* ===================== HERO ===================== */
@@ -63,40 +119,7 @@ header nav a.btn-primary {
   object-fit: cover;
 }
 
-.hero-caption {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  padding: 1rem 2rem;
-  background: rgba(0,0,0,0.4);
-  border-radius: 8px;
-  max-width: 90%;
-}
-
-.hero-caption h1 {
-  color: var(--blanc);
-  font-size: 3rem;
-  margin: 0 0 0.5rem 0;
-}
-
-.hero-caption p {
-  color: var(--blanc);
-  font-size: 1.25rem;
-  margin: 0 0 1rem 0;
-}
-
-.hero-caption a.btn-primary {
-  display: inline-block;
-  background: var(--bleu);
-  color: var(--blanc);
-  padding: 10px 22px;
-  border-radius: var(--radius);
-  font-weight: bold;
-}
-
-/* ===================== SECTION DIRECTEUR ===================== */
+/* ===================== DIRECTEUR ===================== */
 .directeur {
   background: #f9fafb;
   padding: 3rem 2rem;
@@ -114,31 +137,14 @@ header nav a.btn-primary {
 
 .directeur-image img {
   width: 250px;
-  height: auto;
   border-radius: 12px;
   box-shadow: var(--shadow);
 }
 
-.directeur-caption {
-  flex: 1;
-  text-align: left;
-  
-}
+.directeur-caption h2 { color: var(--rouge); font-size: 2rem; }
+.directeur-caption p { font-size: 1.15rem; margin-bottom: 1rem; }
 
-.directeur-caption h2 {
-  color: var(--rouge);
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.directeur-caption p {
-  color: var(--noir);
-  font-size: 1.15rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-/* Bouton Pré-inscription sous Directeur */
+/* Bouton pré-inscription */
 .btn-preinscription {
   display: inline-block;
   background: var(--bleu);
@@ -146,9 +152,7 @@ header nav a.btn-primary {
   padding: 12px 28px;
   border-radius: var(--radius);
   font-weight: bold;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .btn-preinscription:hover {
@@ -156,12 +160,7 @@ header nav a.btn-primary {
   transform: translateY(-2px);
 }
 
-/* Rapprochement section Options et Directeur */
-.directeur + .options {
-  margin-top: -2rem;
-}
-
-/* ===================== SECTION OPTIONS ===================== */
+/* ===================== OPTIONS ===================== */
 .options {
   text-align: center;
   padding: 4rem 2rem;
@@ -184,178 +183,49 @@ header nav a.btn-primary {
 
 .option-card {
   position: relative;
-  background: linear-gradient(to bottom, var(--noir) 0%, var(--rouge) 100%);
+  background: linear-gradient(to bottom, var(--noir), var(--rouge));
   border-radius: var(--radius);
   width: 260px;
   text-align: center;
   box-shadow: var(--shadow);
   overflow: hidden;
   padding-bottom: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Cercle bleu */
-.option-card::before {
-  content: "";
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, #1d4ed8 40%, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
+.option-card img { width: 100%; height: 150px; object-fit: cover; border-bottom: 2px solid var(--rouge); }
 
-/* Animation au hover */
-.option-card:hover {
-  transform: translateY(-10px);
-}
+.option-card h3 { color: wheat; margin: 1rem 0 0.5rem 0; }
+.option-card p { color: var(--blanc); padding: 0 1rem; margin-bottom: 1rem; }
 
-.option-card:hover::before {
-  background: radial-gradient(circle, #2563eb 50%, transparent 75%);
-}
+/* Badges */
+.badge { display: inline-block; width: 22px; height: 22px; margin: 0 4px; border-radius: 50%; }
+.badge-orange { background: var(--orange); }
+.badge-jaune { background: var(--jaune); }
 
-.option-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.option-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-bottom: 2px solid var(--rouge);
-}
-
-.option-card h3 {
-  margin: 1rem 0 0.5rem 0;
-  color: var(--noir);
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: wheat;
-}
-
-.option-card p {
-  padding: 0 1rem;
-  margin-bottom: 1rem;
-  color: var(--blanc);
-  font-size: 0.95rem;
-}
-
-.option-card .badge {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  margin: 0 4px;
-  border-radius: 50%;
-}
-
-.option-card .badge-orange { background: var(--orange); }
-.option-card .badge-jaune { background: var(--jaune); }
-
-/* ===================== FOOTER ===================== */
-footer {
-  background: var(--gris-fonce);
-  color: var(--blanc);
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.95rem;
-}
-
-footer a {
-  color: var(--blanc);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .option-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-  .directeur-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .directeur-caption {
-    text-align: center;
-  }
-}
-/* Boutons S'inscrire dans les cartes */
+/* Boutons carte */
 .option-card a.btn-primary {
-  display: inline-block;
-  background: var(--bleu); /* fond bleu */
-  color: var(--blanc);      /* texte blanc */
+  background: var(--bleu);
+  color: var(--blanc);
   padding: 10px 20px;
   border-radius: var(--radius);
   font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
-  margin-top: 0.5rem;
 }
 
 .option-card a.btn-primary:hover {
-  background: #1e40af; /* bleu foncé au survol */
+  background: #1e40af;
   transform: translateY(-2px);
 }
 
-/* ===== HEADER / NAVIGATION ===== */
-header {
-  background: red; /* rouge */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 40px;
-}
-
-/* Logo */
-.logo-img {
-  height: 55px;
-}
-
-/* Liens navigation */
-nav a {
-  color: #ffffff; /* texte blanc */
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 6px;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Hover menu */
-nav a:hover {
-  background: #1d4ed8; /* bleu */
-  color: #ffffff;
-}
-
-/* Bouton Contact (optionnel, plus visible) */
-nav a.btn-primary {
-  background: #1d4ed8; /* bleu */
-  color: #ffffff;
-}
-
-nav a.btn-primary:hover {
-  background: #ffffff;
-  color: #1d4ed8;
-}
-
+/* ===================== HUMANITAIRES ===================== */
 .humanitaires {
   padding: 4rem 2rem;
   background: #f9fafb;
   text-align: center;
 }
 
-.humanitaires h2 {
-  color: var(--rouge);
-  margin-bottom: 2.5rem;
-}
+.humanitaires h2 { color: var(--rouge); margin-bottom: 2.5rem; }
 
-/* Grille 4 colonnes */
 .humanitaires-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -364,50 +234,25 @@ nav a.btn-primary:hover {
   margin: auto;
 }
 
-/* Carte */
 .option-photo-card {
   background: white;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.option-photo-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
-}
+.option-photo-card:hover { transform: translateY(-8px); box-shadow: 0 18px 35px rgba(0,0,0,0.2); }
+.option-photo-card img { width: 100%; height: 170px; object-fit: cover; }
+.option-photo-card h3 { padding: 1rem; background: linear-gradient(to right, var(--bleu), var(--rouge)); color: var(--blanc); font-size: 1rem; }
 
-/* Image */
-.option-photo-card img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-}
-
-/* Texte */
-.option-photo-card h3 {
-  padding: 1rem;
-  background: linear-gradient(to right, var(--bleu), var(--rouge));
-  color: white;
-  font-size: 1rem;
-}
-
-
-.actus {
-  padding: 4rem 2rem;
-  background: #f9fafb;
-  text-align: center;
-}
-
-.actus h2 {
-  color: var(--rouge);
-  margin-bottom: 2.5rem;
-}
+/* ===================== ACTUS ===================== */
+.actus { padding: 4rem 2rem; background: #f9fafb; text-align: center; }
+.actus h2 { color: var(--rouge); margin-bottom: 2.5rem; }
 
 .actus-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 1.5rem;
   max-width: 1100px;
   margin: auto;
@@ -418,20 +263,11 @@ nav a.btn-primary:hover {
   border-radius: 16px;
   padding: 2rem 1rem;
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
+.actus-card:hover { transform: translateY(-6px); }
+.actus-card h3 { margin-top: 1rem; font-size: 1rem; color: var(--noir); }
 
-.actus-card:hover {
-  transform: translateY(-6px);
-}
-
-.actus-card h3 {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: var(--noir);
-}
-
-/* Icônes */
 .icon {
   width: 60px;
   height: 60px;
@@ -443,17 +279,12 @@ nav a.btn-primary:hover {
   font-size: 1.8rem;
   color: white;
 }
-
 .icon.blue { background: var(--bleu); }
 .icon.lock { background: var(--gris-fonce); }
-.icon.sun {
-  background: linear-gradient(45deg, yellow, green, blue, red);
-}
-.icon.success {
-  background: green;
-}
+.icon.sun { background: linear-gradient(45deg, yellow, green, blue, red); }
+.icon.success { background: green; }
 
-
+/* ===================== CONTACT ===================== */
 .contact-hero {
   position: relative;
   display: grid;
@@ -462,18 +293,9 @@ nav a.btn-primary:hover {
 }
 
 .contact-overlay {
-  background: linear-gradient(to right, red, rgba(37,99,235,0.95));
-  color: white;
+  background: linear-gradient(to right, var(--rouge), rgba(37,99,235,0.95));
+  color: var(--blanc);
   padding: 3rem;
-}
-
-.contact-overlay h2 {
-  margin-bottom: 1rem;
-}
-
-.contact-overlay p {
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
 }
 
 .whatsapp-btn {
@@ -484,12 +306,32 @@ nav a.btn-primary:hover {
   padding: 12px 22px;
   border-radius: 30px;
   font-weight: bold;
-  text-decoration: none;
 }
 
 /* Google map */
-.contact-hero iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+.contact-hero iframe { width: 100%; height: 100%; border: none; }
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: var(--gris-fonce);
+  color: var(--blanc);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.95rem;
 }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  .nav-menu { right: 12px; padding: 1rem; }
+
+  .hero-img { max-height: 300px; }
+  .directeur-container { flex-direction: column; text-align: center; }
+  .directeur-image img { width: 200px; }
+  .option-cards { flex-direction: column; align-items: center; }
+  .humanitaires-grid, .actus-cards { grid-template-columns: 1fr; }
+  .contact-hero { grid-template-columns: 1fr; }
+  .contact-overlay { text-align: center; padding: 2rem 1.5rem; }
+  .contact-hero iframe { height: 280px; }
+}
+

@@ -5,26 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COLLEGE MAENDELEO</title>
   <link rel="stylesheet" href="/styles/style.css">
+  <script src="/script/menu.js" defer></script>
 
   <!-- Favicon -->
   <link rel="icon" href="/images/favicon.jpg" type="image/x-icon">
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
+  
+  <!-- Header -->
+  <header class="header">
+    <!-- Logo à gauche -->
+    <div class="logo">
+      <img src="/images/logo.jpg" class="logo-img" alt="COLLEGE MAENDELEO">
+    </div>
 
-<!-- Header -->
-<header>
-  <div class="logo">
-    <img src="/images/logo.jpg" alt="COLLEGE MAENDELEO" class="logo-img">
-  </div>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="enseignement.html">Enseignement</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="actualite.html">Actualités</a>
-    <a href="contact.html" class="btn-primary">Contact</a>
-  </nav>
-</header>
+    <!-- Bouton hamburger à droite -->
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menu mobile -->
+    <nav class="nav-menu">
+      <button class="menu-close" aria-label="Fermer le menu">✕</button>
+      <a href="index.html">Accueil</a>
+      <a href="enseignement.html">Enseignement</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="actualite.html">Actualités</a>
+      <a href="contact.html" class="btn-primary">Contact</a>
+    </nav>
+  </header>
 
   <style>
     /* ===================== VARIABLES ===================== */
@@ -164,6 +176,30 @@
       }
     });
   </script>
+
+  <!-- Section Contact -->
+  <section class="contact-hero">
+    <div class="contact-overlay">
+      <h2>Contactez-nous</h2>
+      <p>📞 +243 970 710 263<br>📞 +243 970 710 263</p>
+      <p>✉ contact@college-maendeleo.cd</p>
+      <p>📍 <strong>COLLEGE MAENDELEO</strong><br>
+         Province du Haut-Uele<br>
+         Territoire de Watsa<br>
+         Quartier Bandayi<br>
+         Non loin de l’église Communauté Chrétienne de Kibali<br>
+         République Démocratique du Congo
+      </p>
+      <a href="https://wa.me/243970710263" class="whatsapp-btn">💬 Discuter sur WhatsApp</a>
+    </div>
+    <iframe src="https://www.google.com/maps?q=Watsa,Haut-Uele,RDC&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 COLLEGE MAENDELEO. Tous droits réservés.</p>
+    <p><a href="contact.html">Contactez-nous</a></p>
+  </footer>
 
 </body>
 </html>
